@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🎬 Movie Explorer</h1>
+
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search movies..." />
+        <button id="searchBtn">SEARCH</button>
+      </div>
+
+      <button id="themeToggle">🌙</button>
+    </div>
+
+    <div class="controls">
+      <select id="sort">
+        <option value="">Sort</option>
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+      </select>
+
+      <select id="filterYear">
+        <option value="">Year</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="moviesContainer"></main>
+
+  <p id="loading" class="hidden">Loading...</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
