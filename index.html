@@ -3,42 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Movie Explorer</title>
+  <title>Movie Explorer – Discover & Watchlist Great Films</title>
+  <meta name="description" content="Explore thousands of movies, filter by genre and year, manage your personal watchlist, and get full movie details with ratings — all in one place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="dark">
 
+  <!-- ===== HEADER ===== -->
   <header>
-    <h1>🎬 Movie Explorer</h1>
+    <div class="brand">
+      <span class="brand-icon">🎬</span>
+      <h1>Movie <span class="accent">Explorer</span></h1>
+    </div>
 
     <div class="top-bar">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search movies..." />
-        <button id="searchBtn">SEARCH</button>
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search movies, shows..." autocomplete="off" />
+        <button id="searchBtn" aria-label="Search">Search</button>
       </div>
-
-      <button id="themeToggle">🌙</button>
+      <div class="header-actions">
+        <button id="watchlistBtn" class="icon-btn" aria-label="Watchlist">
+          ❤️ <span id="watchlistCount">0</span>
+        </button>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+      </div>
     </div>
 
+    <!-- Filter Controls -->
     <div class="controls">
-      <select id="sort">
-        <option value="">Sort</option>
-        <option value="az">A-Z</option>
-        <option value="za">Z-A</option>
+      <select id="sort" aria-label="Sort movies">
+        <option value="">⇅ Sort</option>
+        <option value="az">A → Z</option>
+        <option value="za">Z → A</option>
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
       </select>
 
-      <select id="filterYear">
-        <option value="">Year</option>
+      <select id="filterYear" aria-label="Filter by year">
+        <option value="">📅 Year</option>
+        <option value="2024">2024</option>
         <option value="2023">2023</option>
         <option value="2022">2022</option>
         <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
       </select>
+
+      <select id="filterType" aria-label="Filter by type">
+        <option value="">🎭 All Types</option>
+        <option value="movie">Movies</option>
+        <option value="series">TV Series</option>
+        <option value="episode">Episodes</option>
+      </select>
+
+      <button id="clearFiltersBtn" class="ghost-btn">✕ Clear</button>
     </div>
   </header>
 
-  <main id="moviesContainer"></main>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="heroSection">
+    <div class="hero-content">
+      <h2>Discover Your Next <span class="accent">Favourite Film</span></h2>
+      <p>Search across thousands of movies &amp; TV shows. Save your watchlist. Explore ratings.</p>
+    </div>
+  </section>
 
-  <p id="loading" class="hidden">Loading...</p>
+  <!-- ===== RESULTS INFO ===== -->
+  <div id="resultsInfo" class="results-info hidden"></div>
+
+  <!-- ===== LOADING SKELETONS ===== -->
+  <div id="skeletonGrid" class="movies-grid hidden">
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  </div>
+
+  <!-- ===== MOVIES GRID ===== -->
+  <main id="moviesContainer" class="movies-grid" role="main" aria-label="Movie results"></main>
+
+  <!-- ===== EMPTY STATE ===== -->
+  <div id="emptyState" class="empty-state hidden">
+    <div class="empty-icon">🎭</div>
+    <h3>No movies found</h3>
+    <p>Try a different search term or clear filters</p>
+    <button id="emptySearchBtn" class="ghost-btn">Try Popular Movies</button>
+  </div>
+
+  <!-- ===== PAGINATION ===== -->
+  <div id="pagination" class="pagination hidden">
+    <button id="prevPage" class="page-btn" aria-label="Previous page">← Prev</button>
+    <span id="pageInfo" class="page-info"></span>
+    <button id="nextPage" class="page-btn" aria-label="Next page">Next →</button>
+  </div>
+
+  <!-- ===== WATCHLIST MODAL ===== -->
+  <div id="watchlistModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="watchlistTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="watchlistTitle">❤️ My Watchlist</h2>
+        <button id="closeWatchlist" class="close-btn" aria-label="Close watchlist">✕</button>
+      </div>
+      <div id="watchlistContent" class="watchlist-content"></div>
+    </div>
+  </div>
+
+  <!-- ===== MOVIE DETAIL MODAL ===== -->
+  <div id="detailModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-box detail-box">
+      <button id="closeDetail" class="close-btn" aria-label="Close details">✕</button>
+      <div id="detailContent" class="detail-content"></div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>🎬 Movie Explorer &nbsp;|&nbsp; Powered by <a href="https://www.omdbapi.com/" target="_blank" rel="noopener">OMDb API</a></p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
