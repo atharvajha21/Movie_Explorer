@@ -36,6 +36,7 @@ const heroSection      = document.getElementById("heroSection");
 const toast            = document.getElementById("toast");
 
 // ===== STATE =====
+// Watchlist is persisted in localStorage
 let allMovies        = [];
 let filteredMovies   = [];
 let currentPage      = 1;
