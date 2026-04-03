@@ -414,7 +414,9 @@ select:focus, select:hover { border-color: var(--accent); }
 
 .watch-btn.added:hover { box-shadow: 0 4px 16px rgba(34,197,94,0.35); }
 
-/* ===== SKELETON LOADING ===== */
+/* ===== SKELETON LOADING =====
+   Shimmer animation while API data fetches
+   ===== */
 .skeleton-card {
   background: var(--card);
   border-radius: var(--radius);
