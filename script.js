@@ -40,7 +40,7 @@ const toast            = document.getElementById("toast");
 let allMovies        = [];
 let filteredMovies   = [];
 let currentPage      = 1;
-const PAGE_SIZE      = 12;
+const PAGE_SIZE      = 12; // Movies per page
 let currentQuery     = "";
 let toastTimer       = null;
 
