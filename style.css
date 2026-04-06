@@ -55,7 +55,9 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ===== HEADER ===== */
+/* ===== HEADER
+   Sticky glassmorphism header with blur backdrop
+   ===== */
 header {
   position: sticky;
   top: 0;
