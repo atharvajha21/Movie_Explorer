@@ -42,7 +42,7 @@ let filteredMovies   = [];
 let currentPage      = 1;
 const PAGE_SIZE      = 12; // Movies per page
 let currentQuery     = "";
-let toastTimer       = null;
+let toastTimer       = null; // Holds setTimeout ref for toast auto-hide
 
 const DEFAULT_QUERIES = ["avengers", "batman", "spiderman", "inception", "joker", "interstellar"];
 
