@@ -1,5 +1,7 @@
 # 🎬 Movie Explorer
 
+🌐 **Live Demo:** [splendid-strudel-7112e5.netlify.app](https://splendid-strudel-7112e5.netlify.app)
+
 A simple movie discovery web app powered by the [OMDb API](https://www.omdbapi.com/). Search for movies and TV shows, filter by type, and manage your personal watchlist — all in a clean dark-themed interface.
 
 ---
