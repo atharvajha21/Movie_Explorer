@@ -1,6 +1,6 @@
 # 🎬 Movie Explorer
 
-A sleek, full-featured movie discovery web app powered by the [OMDb API](https://www.omdbapi.com/). Browse trending titles, search across thousands of movies & TV shows, manage your personal watchlist, and explore detailed movie information — all in one beautiful, responsive interface.
+A simple movie discovery web app powered by the [OMDb API](https://www.omdbapi.com/). Search for movies and TV shows, filter by type, and manage your personal watchlist — all in a clean dark-themed interface.
 
 ---
 
@@ -10,16 +10,8 @@ A sleek, full-featured movie discovery web app powered by the [OMDb API](https:/
 |---|---|
 | 🔍 **Search** | Search any movie or TV show by title |
 | 🎭 **Type Filter** | Filter by Movies, TV Series, or Episodes |
-| 📅 **Year Filter** | Filter results by release year (2015–2024) |
-| ⇅ **Sort** | Sort A–Z, Z–A, Newest First, or Oldest First |
 | ❤️ **Watchlist** | Add/remove movies with localStorage persistence |
-| 🎞 **Detail Modal** | Full plot, cast, director, rating, runtime & IMDb link |
-| 🌟 **IMDb Rating** | Ratings shown in detail view |
-| 📄 **Pagination** | Browse results across multiple pages |
-| 💀 **Skeleton Loader** | Animated loading cards |
-| 🌙☀️ **Dark / Light Theme** | Toggle with persistence |
-| 📢 **Toast Notifications** | Smooth messages for watchlist actions |
-| 📱 **Responsive Design** | Works on mobile, tablet & desktop |
+| 🌙 **Dark Theme** | Cinema-style dark background throughout |
 
 ---
 
@@ -37,11 +29,10 @@ open index.html
 
 ## 🛠 Tech Stack
 
-- **HTML5** — Semantic markup, accessibility attributes
-- **CSS3** — Glassmorphism, CSS variables, animations, responsive grid
+- **HTML5** — Simple semantic markup
+- **CSS3** — Dark theme, responsive grid, basic styling
 - **Vanilla JS** — Async/Await, localStorage, DOM manipulation
 - **[OMDb API](https://www.omdbapi.com/)** — Movie & TV show data
-- **[Google Fonts](https://fonts.google.com/)** — Inter + Outfit typefaces
 
 ---
 
@@ -49,9 +40,9 @@ open index.html
 
 ```
 Movie_Explorer/
-├── index.html    # App shell & HTML structure
-├── style.css     # Design system: variables, layout, animations
-├── script.js     # Logic: fetch, render, filters, modals
+├── index.html    # App structure
+├── style.css     # Dark cinema theme & layout
+├── script.js     # Search, watchlist & filter logic
 └── README.md     # Documentation
 ```
 
@@ -69,6 +60,7 @@ Movie_Explorer/
 | Apr 6 | Full CSS overhaul: glassmorphism, CSS variables, Google Fonts, animations |
 | Apr 7 | Added sort options (newest/oldest), toast notifications, type badge |
 | Apr 8 | Final polish: responsive improvements, README, accessibility |
+| Apr 10 | Simplified to 3 core features; added dark cinema-themed background |
 
 ---
 
